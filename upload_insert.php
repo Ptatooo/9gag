@@ -22,7 +22,7 @@ if(!empty($headline) && !empty($topic))
 {
     //vse ok
 
-    $query = sprintf("INSERT INTO posts(id_usera, headline, details, date_posted) "
+    $query = sprintf("INSERT INTO posts(id_usera, headline, details, date_posted, image) "
             . "VALUES ('$ui','$headline','$details', '$date')");
 
     //echo $query; die();
