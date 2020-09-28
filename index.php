@@ -63,14 +63,15 @@ else {
 
          <div class="col-lg-7">
          <?php
-                     $queryp="SELECT * FROM questions ORDER BY date_asked DESC";
+                     $queryp="SELECT * FROM posts ORDER BY date_posted DESC";
                      $resultp = mysqli_query($link, $queryp);
                      while ($rowp = mysqli_fetch_array($resultp)) {
                         $idvprasalca=$rowp['id_usera'];
                         $headlinee=$rowp['headline'];
                         $detailss=$rowp['details'];
-                        $datee=$rowp['date_asked'];
+                        $datee=$rowp['date_posted'];
                         $datee = date("d.m.Y", strtotime($datee));
+                        $image = $rowp['image'];
                         //ime, priimek
                         $queryvp="SELECT * FROM users WHERE id=$idvprasalca";
                         $resultvp = mysqli_query($link, $queryvp);
@@ -78,15 +79,15 @@ else {
                         $imevp=$rowvp['username'];
                         $slikaa=$rowvp['avatar'];
                         //topic
-                        $idquestiona=$rowp['id'];
-                        $querytq="SELECT id_topica FROM topics_questions WHERE id_questiona=$idquestiona";
-                        $resulttq=mysqli_query($link, $querytq);
-                        $rowtq=mysqli_fetch_array($resulttq);
-                        $idtopica=$rowtq['id_topica'];
-                        $queryto="SELECT topic FROM topics WHERE id=$idtopica";
-                        $resultto=mysqli_query($link, $queryto);
-                        $rowto=mysqli_fetch_array($resultto);
-                        $topicc=$rowto['topic'];
+                      //  $idquestiona=$rowp['id'];
+                      //  $querytq="SELECT id FROM topics_questions WHERE id_questiona=$idquestiona";
+                      //  $resulttq=mysqli_query($link, $querytq);
+                      //  $rowtq=mysqli_fetch_array($resulttq);
+                      //  $idtopica=$rowtq['id'];
+                      //  $queryto="SELECT topic FROM topics WHERE id=$idtopica";
+                      //  $resultto=mysqli_query($link, $queryto);
+                      //  $rowto=mysqli_fetch_array($resultto);
+                      //  $topicc=$rowto['topic'];
                         ?>
             <div class="ui-block">
 
@@ -98,12 +99,12 @@ else {
                   </div>
 
                   <div class="post__author author vcard inline-items">
-                     <img src=<?php echo "$slikaa" ?> alt="author">
+                     <img src="<?php echo "$slikaa" ?>" alt="author">
                      <div class="author-date">
                         <a class="h6 post__author-name fn"><?php echo $imevp; ?></a>
                         <div class="post__date">
                            <time class="published" datetime="2004-07-24T18:18">
-                           <?php echo $topicc, " • ", $datee; ?>
+                           <?php echo /*$topicc, " • ",*/ $datee; ?>
                            </time>
                         </div>
                      </div>
@@ -113,12 +114,18 @@ else {
                         <i class="fa fa-ellipsis-v"></i>
                         </a>
                      </div>
+
                   </div>
+<div>
+      <img src=" <?php echo $image; ?>" alt="image" width="100%" display="block" margin-left="auto" margin-right="auto">
+</div>
+
+
                   <p><?php echo $detailss;?>
                   </p>
                   <div class="post-additional-info inline-items">
                      <p>
-                        <a href="answering.php?id=<?php echo $idquestiona;?>" class="btn btn-sm btn-light"><span class="fa fa-pencil"></span> Comment </a>
+                        <a href="comments.php?id=<?php echo $idquestiona;?>" class="btn btn-sm btn-light"><span class="fa fa-pencil"></span> Comment </a>
                      </p>
                   </div>
                </article>
