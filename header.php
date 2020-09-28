@@ -3,6 +3,7 @@ include './session.php';
 include './db.php';
 include_once "vendor/autoload.php";
 
+
 ?>
 
 <!-- Index -->
@@ -18,7 +19,7 @@ include_once "vendor/autoload.php";
 <body>
 
 <?php
- 
+
         if(!isset($_SESSION['username'])){ //if login in session is not set
 
           echo '
@@ -166,6 +167,20 @@ echo '
 
          else if (isset($_SESSION['username'])) {
 
+
+           $servername = "localhost";
+           $username = "root";
+           $password = "";
+           $db_name = "9gaga";
+
+           // Create connection
+           $link = mysqli_connect($servername, $username, $password, $db_name);
+
+
+           mysqli_query($link, "SET NAMES 'utf8'");
+
+
+
            $userid=$_SESSION['user_id'];
 
            $query="SELECT avatar FROM users where id=$userid";
@@ -174,49 +189,6 @@ echo '
            $slika=$ro['avatar'];
 
            echo '
-
-
-           <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-              <div class="container-fluid">
-
-                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                 <span class="navbar-toggler-icon"></span>
-                 </button>
-                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                       <li class="nav-item">
-                          <a class="nav-link" href="index.php"><i class="fa fa-home"></i> Home</a>
-                       </li>
-                       <li class="nav-item">
-                          <a class="nav-link" href="topics.php"><i class="fa fa-edit"></i> Topics</a>
-                       </li>
-                       <li class="nav-item">
-                          <a class="nav-link" href="notifications.php"><i class="fa fa-bell"></i> Notifications</a>
-                       </li>
-                       <li class="nav-item">
-                          <a class="nav-link" href="groups.php"><i class="fa fa-edit"></i> Groups</a>
-                       </li>
-                    </ul>
-                    <form action="search.php" method="post" class="form-inline my-2 my-lg-0 col-md-5">
-                       <input class="myform-control mr-sm-2" type="text" name="keyword"  aria-label="Search">
-                       <button class="btn btn-light"><i class="fa fa-search"></i></button>
-                    </form>
-                    <ul class="navbar-nav ml-auto">
-                       <li>
-                          <a href="asking.php" id="add-question" class="btn mybtn btn-success">Upload!</a>
-                       </li>
-                       <li class="avatar-profile d-none d-sm-block ">
-                          <a href="profile_editing.php" ><img src=<?php echo "$slika" ?> class="img-responsive" /></a>
-                       </li>
-                       <li>
-                          <a href="logout.php" id="add-question" class="btn mybtn btn-success">Log out</a>
-                       </li>
-                    </ul>
-                 </div>
-              </div>
-           </nav>
-
-
 
 
 
@@ -248,10 +220,10 @@ echo '
             </form>
             <ul class="navbar-nav ml-auto">
                <li>
-                  <a href="asking.php" id="add-question" class="btn mybtn btn-success">Upload!</a>
+                  <a href="uploading.php" id="add-question" class="btn mybtn btn-success">Upload!</a>
                </li>
                <li class="avatar-profile d-none d-sm-block ">
-                  <a href="profile_editing.php" ><img src='; ?><?php echo "$slika" ?> <?php echo 'class="img-responsive" /></a>
+                  <a href="" ><img src="'; ?><?php echo "$slika" ?> <?php echo '" class="img-responsive" /></a>
                </li>
                <li>
                   <a href="logout.php" id="add-question" class="btn mybtn btn-success">Log out</a>
