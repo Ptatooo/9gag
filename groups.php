@@ -28,8 +28,8 @@ if (isset($_SESSION['username'])) {
                   $queryna="SELECT * FROM users WHERE id='$userid'";
                   $resultna= mysqli_query($link, $queryna);
                   $rowna= mysqli_fetch_array($resultna);
-                  $ime=$rowna['ime'];
-                  $dzoin=$rowna['id_grupe'];
+                  $ime=$rowna['username'];
+                  $dzoin=$rowna['id'];
              ?> <h6 class="my-4"> <?php   echo 'Hello, ', $ime,', here you can create a group, or join one'; ?> </h6>
                 <h6 class="my-4"> <?php   echo 'Create a group <a href="group_create.php">HERE</a>'; ?> </h6>
   <div class="container">

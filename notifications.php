@@ -9,7 +9,7 @@ include_once './db.php';
                 $queryna="SELECT * FROM users WHERE id='$userid'";
                 $resultna= mysqli_query($link, $queryna);
                 $rowna= mysqli_fetch_array($resultna);
-                $ime=$rowna['ime'];
+                $ime=$rowna['username'];
            ?> <h6 class="my-4"> <?php   echo 'Hello, ', $ime,', here you can see all of your notifications'; ?> </h6>
 <div class="container">
     <div class="row col-md-6 col-md-offset-2 custyle">
@@ -33,7 +33,7 @@ include_once './db.php';
                 echo '<tr>';
                 echo '<td>';
                 // grupa
-                if($tip==1){           
+                if($tip==1){
                 echo 'Upvote';
                 }
                 else if($tip==2){
@@ -42,7 +42,7 @@ include_once './db.php';
                 echo '</td>';
                 echo '<td>';
                 // opis
-                if($tip==1){           
+                if($tip==1){
                     echo 'Someone has upvoted your answer!';
                     }
                     else if($tip==2){
@@ -50,15 +50,15 @@ include_once './db.php';
                     }
                 echo '</td>';
                 echo '<td>';
-                
+
                 echo $datum;
                 echo '</td>';
                 echo '<td>';
-                
+
                 echo '<a href="notif_delete.php?id='.$idno.'">Mark';
                 echo '</td>';
                 echo '<td>';
-                
+
                 echo '</tr>';
                 }
         ?>

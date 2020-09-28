@@ -6,10 +6,10 @@ include_once './db.php';
 <div align="center">
 <?php
 
-                $queryna="SELECT ime FROM users WHERE id='$userid'";
+                $queryna="SELECT username FROM users WHERE id='$userid'";
                 $resultna= mysqli_query($link, $queryna);
                 $rowna= mysqli_fetch_array($resultna);
-                $ime=$rowna['ime'];
+                $ime=$rowna['username'];
            ?> <h6 class="my-4"> <?php   echo 'Hello, ', $ime,', here you can pick a topic to view'; ?> </h6>
 
 <div class="container">

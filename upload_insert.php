@@ -5,6 +5,7 @@ $topic = $_POST['asking'];
 $details = $_POST['details'];
 $ui = $_SESSION['user_id'];
 $date = date("Y-m-d");
+$image = $_POST
 
 
            $servername = "localhost";
