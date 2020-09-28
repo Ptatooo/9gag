@@ -18,7 +18,8 @@ if (!empty($username) && !empty($pass)) {
       $_SESSION['user_id']=$user['id'];
 
 header( "refresh:0;url=index.php" );
-
+echo $username;
+echo $pass;
     } else {
 
       echo $username;
