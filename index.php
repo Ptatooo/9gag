@@ -80,14 +80,14 @@ else {
                         $slikaa=$rowvp['avatar'];
                         //topic
                        $idquestiona=$rowp['id'];
-                      //  $querytq="SELECT id FROM topics_questions WHERE id_questiona=$idquestiona";
-                      //  $resulttq=mysqli_query($link, $querytq);
-                      //  $rowtq=mysqli_fetch_array($resulttq);
-                      //  $idtopica=$rowtq['id'];
-                      //  $queryto="SELECT topic FROM topics WHERE id=$idtopica";
-                      //  $resultto=mysqli_query($link, $queryto);
-                      //  $rowto=mysqli_fetch_array($resultto);
-                      //  $topicc=$rowto['topic'];
+                        $querytq="SELECT id FROM topics_posts WHERE id_post=$idquestiona";
+                        $resulttq=mysqli_query($link, $querytq);
+                        $rowtq=mysqli_fetch_array($resulttq);
+                        $idtopica=$rowtq['id'];
+                        $queryto="SELECT topic FROM topics WHERE id=$idtopica";
+                       $resultto=mysqli_query($link, $queryto);
+                       $rowto=mysqli_fetch_array($resultto);
+                       $topicc=$rowto['topic'];
                         ?>
             <div class="ui-block">
 
@@ -104,15 +104,10 @@ else {
                         <a class="h6 post__author-name fn"><?php echo $imevp; ?></a>
                         <div class="post__date">
                            <time class="published" datetime="2004-07-24T18:18">
-                           <?php echo /*$topicc, " • ",*/ $datee; ?>
+                           <?php echo $topicc, " • ", $datee; ?>
                            </time>
                         </div>
-                     </div>
-                     <!-- tu bo delete -->
-                     <div class="more">
-                        <a href="#">
-                        <i class="fa fa-ellipsis-v"></i>
-                        </a>
+
                      </div>
 
                   </div>

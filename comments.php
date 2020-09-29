@@ -2,16 +2,32 @@
 include_once './header.php';
 include_once './db.php';
 
+$servername = "localhost";
+$username = "root";
+$password = "";
+$db_name = "9gaga";
+
+// Create connection
+$link = mysqli_connect($servername, $username, $password, $db_name);
+
+// driver napaka - popravek
+mysqli_query($link, "SET NAMES 'utf8'");
+
+
+
+
+
+
 $userid = $_SESSION['user_id'];
 $idquestiona=$_GET['id'];
 
-$queryp="SELECT * FROM questions WHERE id=$idquestiona";
+$queryp="SELECT * FROM posts WHERE id=$idquestiona";
 $resultp = mysqli_query($link, $queryp);
 $rowp = mysqli_fetch_array($resultp);
 $idvprasalca=$rowp['id_usera'];
 $headlinee=$rowp['headline'];
 $detailss=$rowp['details'];
-$datee=$rowp['date_asked'];
+$datee=$rowp['date_posted'];
 
 $queryvp="SELECT * FROM users WHERE id=$idvprasalca";
 $resultvp = mysqli_query($link, $queryvp);
@@ -21,7 +37,7 @@ $imevp=$rowvp['username'];
 $avatarvp=$rowvp['avatar'];
 
 $idquestiona=$rowp['id'];
-$querytq="SELECT id_topica FROM topics_questions WHERE id_questiona=$idquestiona";
+$querytq="SELECT id_topica FROM topics_posts WHERE id_post=$idquestiona";
 $resulttq=mysqli_query($link, $querytq);
 $rowtq=mysqli_fetch_array($resulttq);
 $idtopica=$rowtq['id_topica'];
@@ -63,7 +79,7 @@ $topicc=$rowto['topic'];
                   </p>
                   <div class="post-additional-info inline-items">
                     <!-- odg -->
-                    <form action="answer_inserting.php" method="post">
+                    <form action="comments_inserting.php" method="post">
                     <textarea placeholder="Your comment" rows = "3" cols = "70" name="comment"></textarea> <br> <br>
                     <input type="hidden" name="idpitanja" value="<?php echo $idquestiona;?>">
                     <input type="submit" class="btn btn-sm btn-light" value="Comment">
@@ -81,14 +97,14 @@ $topicc=$rowto['topic'];
                         $idodgovaralca=$rowa['id_usera'];
                         $odgovor=$rowa['answer'];
                         $idodgovora=$rowa['id'];
-                        $datum=$rowa['date_answered'];
+                        $datum=$rowa['date_commented'];
                         $upvotes=$rowa['upvote'];
                         //ime, priimek
                         $queryodg="SELECT * FROM users WHERE id=$idodgovaralca";
                         $resultodg = mysqli_query($link, $queryodg);
                         $rowodg=mysqli_fetch_array($resultodg);
-                        $imeodg=$rowodg['ime'];
-                        $priimekodg=$rowodg['priimek'];
+                        $imeodg=$rowodg['username'];
+
                         //avatar na postu
                         $slikaodg=$rowodg['avatar'];
                         ?>
@@ -101,7 +117,7 @@ $topicc=$rowto['topic'];
                      <div class="author-date">
                         <a class="h6 post__author-name fn"><?php echo $imeodg; ?></a>
                         <?php
-                                                                    if($_SESSION['tip_u'] == 2) {
+                                                                    if($_SESSION['username'] == 2) {
                                                                 ?>
                       <br>  <a href="deleting_answers.php?id=<?php echo $idodgovora;?>" class="btn btn-sm btn-light"> Delete</a>
                                                                 <?php

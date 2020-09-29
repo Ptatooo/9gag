@@ -144,7 +144,7 @@ echo '
           					</div>
           				</div>
                   <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Sign in with Google</button>
-                       <a href="fb-init.php"> Facebook </a>
+                       <a href="refb.php"> Facebook </a>
           				<div class="modal-footer justify-content-between">
 
           					<input type="submit" class="btn btn-primary" value="Sign up">

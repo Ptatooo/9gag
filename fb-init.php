@@ -8,14 +8,14 @@ require './vendor/autoload.php';
 
 
 $fb = new Facebook\Facebook([
-    'app_id' => '623571614991315', // replace your app_id
-    'app_secret' => '5d64c546b7434eb22aba0b3d7f3cd9e7',   // replace your app_scsret
+    'app_id' => '918447432015781', // replace your app_id
+    'app_secret' => '87b03114b98e90cf514fee50d0e09a8c',   // replace your app_scsret
     'default_graph_version' => 'v2.7'
         ]);
 
 
 $helper = $fb->getRedirectLoginHelper();
-$login_url = $helper->getLoginUrl("http://localhost/fb-login/");
+$login_url = $helper->getLoginUrl("http://localhost/9gag/fb-init.php/");
 
 try {
 
