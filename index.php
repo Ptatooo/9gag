@@ -1,6 +1,6 @@
 <?php
 include_once './header.php';
-
+require './fb-init.php';
 
 $servername = "localhost";
 $username = "root";
@@ -79,7 +79,7 @@ else {
                         $imevp=$rowvp['username'];
                         $slikaa=$rowvp['avatar'];
                         //topic
-                      //  $idquestiona=$rowp['id'];
+                       $idquestiona=$rowp['id'];
                       //  $querytq="SELECT id FROM topics_questions WHERE id_questiona=$idquestiona";
                       //  $resulttq=mysqli_query($link, $querytq);
                       //  $rowtq=mysqli_fetch_array($resulttq);

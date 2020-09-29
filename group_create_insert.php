@@ -11,7 +11,7 @@ if(!empty($imegrupe) && !empty($opisgrupe)){
 
 
 
-    $sql = "INSERT INTO groups(imegrupe, opis) VALUES (?,?)";
+    $sql = "INSERT INTO groups(imegrupe,opis) VALUES (?,?)";
    $stmt= $pdo->prepare($sql);
    $stmt->execute([$imegrupe, $opis]);
 
@@ -24,7 +24,7 @@ if(!empty($imegrupe) && !empty($opisgrupe)){
 
       header("Location: group_create.php");
     }
-}
+
 
 
 

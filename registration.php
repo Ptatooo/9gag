@@ -42,10 +42,10 @@ $stmt= $pdo->prepare($sql);
 
 if ($stmt->execute($data))
 {
-    ;
+  ;
 
 
-header( "refresh:0;url=index.php" );
+header( "url=index.php" );
 
 
 }

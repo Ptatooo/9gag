@@ -32,6 +32,9 @@ include_once "vendor/autoload.php";
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                    <ul class="navbar-nav mr-auto">
+                   <li class="nav-item">
+                      <a href="" ><img src="uploads/logo.jpg" width="100%"  class="img-responsive" /></a>
+                   </li>
                       <li class="nav-item">
                          <a class="nav-link" href="index.php"><i class="fa fa-home"></i> Home</a>
                       </li>
@@ -141,7 +144,7 @@ echo '
           					</div>
           				</div>
                   <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Sign in with Google</button>
-                       <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign in with Facebook</button>
+                       <a href="fb-init.php"> Facebook </a>
           				<div class="modal-footer justify-content-between">
 
           					<input type="submit" class="btn btn-primary" value="Sign up">
@@ -165,7 +168,7 @@ echo '
 
 
 
-         else if (isset($_SESSION['username'])) {
+         else if (isset($_SESSION['username']) && (isset($_SESSION['access_token']))) {
 
 
            $servername = "localhost";
@@ -201,6 +204,9 @@ echo '
          </button>
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+               <a href="" ><img src="uploads/logo.jpg" width="60%"  class="img-responsive" /></a>
+            </li>
                <li class="nav-item">
                   <a class="nav-link" href="index.php"><i class="fa fa-home"></i> Home</a>
                </li>

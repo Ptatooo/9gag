@@ -1,4 +1,6 @@
 <?php
+
+
 /**
  * Copyright 2017 Facebook, Inc.
  *
@@ -42,6 +44,7 @@ use Facebook\Helpers\FacebookJavaScriptHelper;
 use Facebook\Helpers\FacebookPageTabHelper;
 use Facebook\Helpers\FacebookRedirectLoginHelper;
 use Facebook\Exceptions\FacebookSDKException;
+
 
 /**
  * Class Facebook
