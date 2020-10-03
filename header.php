@@ -44,9 +44,7 @@ include_once "vendor/autoload.php";
                       <li class="nav-item">
                          <a class="nav-link" href="notifications.php"><i class="fa fa-bell"></i> Notifications</a>
                       </li>
-                      <li class="nav-item">
-                         <a class="nav-link" href="groups.php"><i class="fa fa-edit"></i> Groups</a>
-                      </li>
+
                    </ul>
                    <form action="search.php" method="post" class="form-inline my-2 my-lg-0 col-md-5">
                       <input class="myform-control mr-sm-2" type="text" name="keyword"  aria-label="Search">
@@ -168,7 +166,7 @@ echo '
 
 
 
-         else if (isset($_SESSION['username']) && (isset($_SESSION['access_token']))) {
+         else if (isset($_SESSION['username'])) {
 
 
            $servername = "localhost";
@@ -205,7 +203,7 @@ echo '
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-               <a href="" ><img src="uploads/logo.jpg" width="60%"  class="img-responsive" /></a>
+               <a href="" ><img src="uploads/logo.jpg" width="50%"  class="img-responsive" /></a>
             </li>
                <li class="nav-item">
                   <a class="nav-link" href="index.php"><i class="fa fa-home"></i> Home</a>
@@ -216,9 +214,7 @@ echo '
                <li class="nav-item">
                   <a class="nav-link" href="notifications.php"><i class="fa fa-bell"></i> Notifications</a>
                </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="groups.php"><i class="fa fa-edit"></i> Groups</a>
-               </li>
+
             </ul>
             <form action="search.php" method="post" class="form-inline my-2 my-lg-0 col-md-5">
                <input class="myform-control mr-sm-2" type="text" name="keyword"  aria-label="Search">

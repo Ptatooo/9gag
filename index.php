@@ -25,7 +25,7 @@ if (isset($_SESSION['username'])) {
   $ro= mysqli_fetch_array($res);
   $slika=$ro['avatar'];
 }
-else {
+else{
 
 }
 
@@ -63,15 +63,19 @@ else {
 
          <div class="col-lg-7">
          <?php
+
                      $queryp="SELECT * FROM posts ORDER BY date_posted DESC";
                      $resultp = mysqli_query($link, $queryp);
                      while ($rowp = mysqli_fetch_array($resultp)) {
+                       $idodidea = $rowp['id'];
                         $idvprasalca=$rowp['id_usera'];
                         $headlinee=$rowp['headline'];
                         $detailss=$rowp['details'];
                         $datee=$rowp['date_posted'];
                         $datee = date("d.m.Y", strtotime($datee));
                         $image = $rowp['image'];
+                        $upvotes = $rowp['upvote'];
+                        $downvotes = $rowp['downvote'];
                         //ime, priimek
                         $queryvp="SELECT * FROM users WHERE id=$idvprasalca";
                         $resultvp = mysqli_query($link, $queryvp);
@@ -87,7 +91,7 @@ else {
                         $queryto="SELECT topic FROM topics WHERE id=$idtopica";
                        $resultto=mysqli_query($link, $queryto);
                        $rowto=mysqli_fetch_array($resultto);
-                       $topicc=$rowto['topic'];
+                       //$topicc=$rowto['topic'];
                         ?>
             <div class="ui-block">
 
@@ -104,7 +108,7 @@ else {
                         <a class="h6 post__author-name fn"><?php echo $imevp; ?></a>
                         <div class="post__date">
                            <time class="published" datetime="2004-07-24T18:18">
-                           <?php echo $topicc, " • ", $datee; ?>
+                      <?php echo  $datee; ?>
                            </time>
                         </div>
 
@@ -119,6 +123,22 @@ else {
                   <p><?php echo $detailss;?>
                   </p>
                   <div class="post-additional-info inline-items">
+                    <p>
+                    <?php echo  $upvotes, " ", "upvotes!", "  "; ?>
+                    <?php $pritisnuto = 0;
+                        $pritisnuto1 = 0;
+
+                          ?>
+                         <a href="upvotingp.php?id=<?php echo $idodidea;?>" class="btn btn-sm btn-light"> Upvote</a>
+                    </p>
+                    <p>
+                    <?php echo  $downvotes, " ", "downvotes!", "  "; ?>
+                    <?php $pritisnuto = 0;
+                        $pritisnuto1 = 0;
+
+                          ?>
+                         <a href="downvotingp.php?id=<?php echo $idodidea;?>" class="btn btn-sm btn-light"> Downvote</a>
+                    </p>
                      <p>
                         <a href="comments.php?id=<?php echo $idquestiona;?>" class="btn btn-sm btn-light"><span class="fa fa-pencil"></span> Comment </a>
                      </p>

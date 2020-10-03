@@ -20,7 +20,7 @@ $idodgovora=$_GET['id'];
 $userid = $_SESSION['user_id'];
 $date = date("Y-m-d");
 
-$query = sprintf("UPDATE comments SET upvote = upvote + 1 WHERE id=$idodgovora");
+$query = sprintf("UPDATE posts SET downvote = downvote + 1 WHERE id=$idodgovora");
 mysqli_query($link, $query);
 
 //query za ubacivanje notifikacija liku ciji je odgovor

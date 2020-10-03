@@ -2,6 +2,22 @@
 include_once './header.php';
 $userid=$_SESSION['user_id'];
 include_once './db.php';
+
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$db_name = "9gaga";
+
+// Create connection
+$link = mysqli_connect($servername, $username, $password, $db_name);
+
+// driver napaka - popravek
+mysqli_query($link, "SET NAMES 'utf8'");
+
+
+
+
 ?>
 <div align="center">
 <?php
@@ -37,16 +53,19 @@ include_once './db.php';
                 echo 'Upvote';
                 }
                 else if($tip==2){
-                    echo 'Answer';
+                    echo 'Comment';
                 }
                 echo '</td>';
                 echo '<td>';
                 // opis
                 if($tip==1){
-                    echo 'Someone has upvoted your answer!';
+                    echo 'Someone has upvoted!';
                     }
                     else if($tip==2){
-                        echo 'Someone has answered your question!';
+                        echo 'Someone has commented your post!';
+                    }
+                    else if($tip ==3){
+                      echo 'Someone has downvoted!';
                     }
                 echo '</td>';
                 echo '<td>';

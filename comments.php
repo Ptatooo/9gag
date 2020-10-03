@@ -88,7 +88,7 @@ $topicc=$rowto['topic'];
                </article>
                      </div>
                        </div>
-                 <!-- Answers -->
+                 <!-- Comments -->
 
          <?php
                      $querya="SELECT * FROM comments WHERE id_questiona=$idquestiona ORDER BY upvote DESC";
@@ -99,6 +99,7 @@ $topicc=$rowto['topic'];
                         $idodgovora=$rowa['id'];
                         $datum=$rowa['date_commented'];
                         $upvotes=$rowa['upvote'];
+                        $downvotes=$rowa['downvote'];
                         //ime, priimek
                         $queryodg="SELECT * FROM users WHERE id=$idodgovaralca";
                         $resultodg = mysqli_query($link, $queryodg);
@@ -116,12 +117,7 @@ $topicc=$rowto['topic'];
                      <img src=<?php echo "$slikaodg" ?> alt="author">
                      <div class="author-date">
                         <a class="h6 post__author-name fn"><?php echo $imeodg; ?></a>
-                        <?php
-                                                                    if($_SESSION['username'] == 2) {
-                                                                ?>
-                      <br>  <a href="deleting_answers.php?id=<?php echo $idodgovora;?>" class="btn btn-sm btn-light"> Delete</a>
-                                                                <?php
-                                                                  }?>
+
                         <div class="post__date">
                            <time class="published" datetime="2004-07-24T18:18">
                            <?php echo $datum; ?>
@@ -137,6 +133,12 @@ $topicc=$rowto['topic'];
                                  ?>
                                 <a href="upvoting.php?id=<?php echo $idodgovora;?>" class="btn btn-sm btn-light"> Upvote</a>
                      </p>
+                     <?php echo "This has:", " ", $downvotes, " ", "downvotes!", "  "; ?>
+                     <?php $pritisnuto = 0;
+                           $pritisnuto1 = 0;
+
+                             ?>
+                            <a href="downvoting.php?id=<?php echo $idodgovora;?>" class="btn btn-sm btn-light"> Downvote</a>
                         </div>
                      </div>
                      </div>

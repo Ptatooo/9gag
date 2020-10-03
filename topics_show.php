@@ -19,7 +19,7 @@ $idtopicaa=$_GET['id'];
                    while ($rowtop = mysqli_fetch_array($resulttop)) {
                       $imegrupe=$rowtop['imegrupe'];
                      $counter++;
-                     
+
                     echo '<a class="nav-link" data-toggle="pill">'.$imegrupe.'</a>';
                     if($counter==5){
                        break;
@@ -32,33 +32,33 @@ $idtopicaa=$_GET['id'];
          </div>
          <!-- /.col-lg-3 -->
          <!-- Questions pa to -->
-         
+
          <div class="col-lg-7">
          <?php
-                     
-                     //topic za question id
-                     $querytq2="SELECT * FROM topics_questions WHERE id_topica=$idtopicaa";
+
+                     //topic za post id
+                     $querytq2="SELECT * FROM topics_posts WHERE id_topica=$idtopicaa";
                      $resulttq2=mysqli_query($link, $querytq2);
                      while ($rowtq2=mysqli_fetch_array($resulttq2)) {
                      $idtopicsquestions=$rowtq2['id'];
-                     
-                     $queryp="SELECT * FROM questions WHERE id=$idtopicsquestions";
+
+                     $queryp="SELECT * FROM posts WHERE id=$idtopicsquestions";
                      $resultp = mysqli_query($link, $queryp);
                      while ($rowp = mysqli_fetch_array($resultp)) {
                         $idvprasalca=$rowp['id_usera'];
                         $headlinee=$rowp['headline'];
                         $detailss=$rowp['details'];
-                        $datee=$rowp['date_asked'];
+                        $datee=$rowp['date_posted'];
                         $idquestiona=$rowp['id'];
+                        $image=$rowp['image'];
                         //ime, priimek
                         $queryvp="SELECT * FROM users WHERE id=$idvprasalca";
                         $resultvp = mysqli_query($link, $queryvp);
                         $rowvp=mysqli_fetch_array($resultvp);
-                        $imevp=$rowvp['ime'];
-                        $priimekvp=$rowvp['priimek'];
+                        $imevp=$rowvp['username'];
                         $slikaa=$rowvp['avatar'];
                         //topic
-                     $querytq="SELECT * FROM topics_questions WHERE id_topica=$idtopicaa";
+                     $querytq="SELECT * FROM topics_posts WHERE id_topica=$idtopicaa";
                      $resulttq=mysqli_query($link, $querytq);
                      $rowtq=mysqli_fetch_array($resulttq);
                      $idtopica=$rowtq['id_topica'];
@@ -68,18 +68,18 @@ $idtopicaa=$_GET['id'];
                      $topicc=$rowto['topic'];
                         ?>
             <div class="ui-block">
-            
+
                <article class="hentry post">
                   <div class="m-link">
-                     
+
                         <h4><?php echo $headlinee ?></h4>
-                     
+
                   </div>
-                  
+
                   <div class="post__author author vcard inline-items">
                      <img src=<?php echo "$slikaa" ?> alt="author">
                      <div class="author-date">
-                        <a class="h6 post__author-name fn"><?php echo $imevp, " ", $priimekvp; ?></a>
+                        <a class="h6 post__author-name fn"><?php echo $imevp; ?></a>
                         <div class="post__date">
                            <time class="published" datetime="2004-07-24T18:18">
                            <?php echo $topicc, " • ", $datee; ?>
@@ -93,14 +93,17 @@ $idtopicaa=$_GET['id'];
                         </a>
                      </div>
                   </div>
+                  <div>
+                        <img src=" <?php echo $image; ?>" alt="image" width="100%" display="block" margin-left="auto" margin-right="auto">
+                  </div>
                   <p><?php echo $detailss;?>
                   </p>
                   <div class="post-additional-info inline-items">
                      <p>
-                        <a href="answering.php?id=<?php echo $idquestiona;?>" class="btn btn-sm btn-light"> Answer</a>
+                        <a href="comments.php?id=<?php echo $idquestiona;?>" class="btn btn-sm btn-light"> Comment</a>
                      </p>
                   </div>
                </article>
-                     </div>       
+                     </div>
                        <?php } } ?>
 </body>
