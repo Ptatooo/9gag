@@ -44,6 +44,7 @@ if ($stmt->execute($data))
 {
   ;
 
+$userid = $_SESSION['user_id'];
 
 header( "url=index.php" );
 

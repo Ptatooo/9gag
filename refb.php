@@ -1,6 +1,6 @@
 <?php
-require './fb-init.php';
-header("Location:$login_url");
+require 'fb-init.php';
+
  ?>
 <?php if(isset($_SESSION['access_token'])): ?>
   <a href="logout.php">Logout</a>

@@ -1,17 +1,9 @@
 <?php
 include_once './header.php';
-require './fb-init.php';
+include 'config.php';
+include 'sql.php';
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$db_name = "9gaga";
 
-// Create connection
-$link = mysqli_connect($servername, $username, $password, $db_name);
-
-// driver napaka - popravek
-mysqli_query($link, "SET NAMES 'utf8'");
 
 
 
@@ -37,7 +29,7 @@ else{
          <div class="col-lg-2">
             <div class=" aff-right">
                <div class="ui-block">
-                  <h6 class="my-4">Popular</h6>
+                  <h6 class="my-4">Popular groups</h6>
                   <hr>
                   <div class="nav flex-column nav-pills nav-stacked" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                   <?php
@@ -53,6 +45,7 @@ else{
                        break;
                     }
                      }
+
                   ?>
                   </div>
                </div>
@@ -76,7 +69,7 @@ else{
                         $image = $rowp['image'];
                         $upvotes = $rowp['upvote'];
                         $downvotes = $rowp['downvote'];
-                        //ime, priimek
+                        //ime
                         $queryvp="SELECT * FROM users WHERE id=$idvprasalca";
                         $resultvp = mysqli_query($link, $queryvp);
                         $rowvp=mysqli_fetch_array($resultvp);
@@ -116,7 +109,7 @@ else{
 
                   </div>
 <div>
-      <img src=" <?php echo $image; ?>" alt="image" width="100%" display="block" margin-left="auto" margin-right="auto">
+      <img src=" <?php echo $image; ?>"  alt="image" width="100%" display="block" margin-left="auto" margin-right="auto"></a>
 </div>
 
 
@@ -141,6 +134,7 @@ else{
                     </p>
                      <p>
                         <a href="comments.php?id=<?php echo $idquestiona;?>" class="btn btn-sm btn-light"><span class="fa fa-pencil"></span> Comment </a>
+
                      </p>
                   </div>
                </article>
