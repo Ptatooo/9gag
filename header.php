@@ -105,7 +105,7 @@ echo '
           					</div>
           				</div>
           				<div class="modal-footer justify-content-between">
-          					<label class="form-check-label"><input type="checkbox"> Remember me</label>
+          					
           					<input type="submit" class="btn btn-primary" value="Login">
           				</div>
           			</form>
@@ -143,6 +143,10 @@ echo '
           						<input name="pass" type="password" class="form-control" required="required">
           					</div>
           				</div>
+                  <div class="form-group">
+          <label for="adminkod" class="sr-only">Admin code</label>
+          <input type="password" class="form-control" id="adminkod" name="adminkod" placeholder="Admin code">
+        </div>
                   <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Sign in with Google</button>
                        <a href="refb.php"> Facebook </a>
           				<div class="modal-footer justify-content-between">

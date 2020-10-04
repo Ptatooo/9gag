@@ -1,18 +1,8 @@
 <?php
 include_once './header.php';
 include_once './db.php';
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$db_name = "9gaga";
-
-// Create connection
-$link = mysqli_connect($servername, $username, $password, $db_name);
-
-// driver napaka - popravek
-mysqli_query($link, "SET NAMES 'utf8'");
-
+require './session.php';
+include_once './sql.php';
 
 
 
@@ -117,7 +107,12 @@ $topicc=$rowto['topic'];
                      <img src=<?php echo "$slikaodg" ?> alt="author">
                      <div class="author-date">
                         <a class="h6 post__author-name fn"><?php echo $imeodg; ?></a>
-
+                        <?php
+                                                                                          if($_SESSION['tipu'] == 2) {
+                                                                                      ?>
+                                            <br>  <a href="deleting_comments.php?id=<?php echo $idodgovora;?>" class="btn btn-sm btn-light"> Delete</a>
+                                                                                      <?php
+                                                                                        }?>
                         <div class="post__date">
                            <time class="published" datetime="2004-07-24T18:18">
                            <?php echo $datum; ?>
