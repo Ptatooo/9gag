@@ -51,7 +51,9 @@ $idtopicaa=$_GET['id'];
                         $datee=$rowp['date_posted'];
                         $idquestiona=$rowp['id'];
                         $image=$rowp['image'];
-                        //ime, priimek
+                        $upvotes = $rowp['upvote'];
+                        $downvotes = $rowp['downvote'];
+
                         $queryvp="SELECT * FROM users WHERE id=$idvprasalca";
                         $resultvp = mysqli_query($link, $queryvp);
                         $rowvp=mysqli_fetch_array($resultvp);
@@ -99,11 +101,29 @@ $idtopicaa=$_GET['id'];
                   <p><?php echo $detailss;?>
                   </p>
                   <div class="post-additional-info inline-items">
+                    <p>
+                    <?php echo  $upvotes, " ", "upvotes!", "  "; ?>
+                    <?php $pritisnuto = 0;
+                        $pritisnuto1 = 0;
+
+                          ?>
+                         <a href="upvotingp.php?id=<?php echo $idodidea;?>" class="btn btn-sm btn-light"> Upvote</a>
+                    </p>
+                    <p>
+                    <?php echo  $downvotes, " ", "downvotes!", "  "; ?>
+                    <?php $pritisnuto = 0;
+                        $pritisnuto1 = 0;
+
+                          ?>
+                         <a href="downvotingp.php?id=<?php echo $idodidea;?>" class="btn btn-sm btn-light"> Downvote</a>
+                    </p>
                      <p>
-                        <a href="comments.php?id=<?php echo $idquestiona;?>" class="btn btn-sm btn-light"> Comment</a>
+                        <a href="comments.php?id=<?php echo $idquestiona;?>" class="btn btn-sm btn-light"><span class="fa fa-pencil"></span> Comment </a>
+
                      </p>
                   </div>
                </article>
                      </div>
+
                        <?php } } ?>
 </body>

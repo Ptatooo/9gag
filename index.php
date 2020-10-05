@@ -117,6 +117,7 @@ else{
                   </p>
                   <div class="post-additional-info inline-items">
                     <p>
+                      <?php if (isset($_SESSION['username'])) { ?>
                     <?php echo  $upvotes, " ", "upvotes!", "  "; ?>
                     <?php $pritisnuto = 0;
                         $pritisnuto1 = 0;
@@ -141,5 +142,7 @@ else{
                      </div>
 
 
-                       <?php } ?>
+                       <?php }
+}
+                        ?>
 </body>

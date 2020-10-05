@@ -2,7 +2,7 @@
 include './session.php';
 include './db.php';
 include_once "vendor/autoload.php";
-
+include './sql.php';
 
 ?>
 
@@ -12,7 +12,8 @@ include_once "vendor/autoload.php";
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" href="indeks.css">
 <script src="indeks.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
@@ -24,7 +25,7 @@ include_once "vendor/autoload.php";
 
           echo '
           <!-- Navigation -->
-          <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+          <nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top">
              <div class="container-fluid">
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,37 +34,21 @@ include_once "vendor/autoload.php";
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                    <ul class="navbar-nav mr-auto">
                    <li class="nav-item">
-                      <a href="" ><img src="uploads/logo.jpg" width="100%"  class="img-responsive" /></a>
+                      <a href="" ><img src="uploads/logo.jpg" width="10%"  class="img-responsive" /></a>
                    </li>
-                      <li class="nav-item">
-                         <a class="nav-link" href="index.php"><i class="fa fa-home"></i> Home</a>
-                      </li>
-                      <li class="nav-item">
-                         <a class="nav-link" href="topics.php"><i class="fa fa-edit"></i> Topics</a>
-                      </li>
-                      <li class="nav-item">
-                         <a class="nav-link" href="notifications.php"><i class="fa fa-bell"></i> Notifications</a>
-                      </li>
-                      <li class="nav-item">
-                                     <a class="nav-link" href="groups.php"><i class="fa fa-edit"></i> Groups</a>
-                                  </li>
+
                    </ul>
-                   <form action="search.php" method="post" class="form-inline my-2 my-lg-0 col-md-5">
-                      <input class="myform-control mr-sm-2" type="text" name="keyword"  aria-label="Search">
-                      <button class="btn btn-light"><i class="fa fa-search"></i></button>
-                   </form>
+
                    <ul class="navbar-nav ml-auto">
-                      <li>
-                         <a href="asking.php" id="add-question" class="btn mybtn btn-success">Upload!</a>
-                      </li>
+
                       <li class="avatar-profile d-none d-sm-block ">
                          <a href="" ><img src="uploads/basicavatar.jpg" class="img-responsive" /></a>
                       </li>
-                      <li>
-                      <a class="nav-link" href="#myModal" class="trigger-btn" data-toggle="modal"> Login </a>
+                      <li class="nav-item">
+                      <a class="nav-link" href="#myModal" class="img-responsive" data-toggle="modal"> Login </a>
                     </li>
                     <li class="nav-item ">
-                      <a class="nav-link" href="#myModal2" class="trigger-btn" data-toggle="modal"> SignUp </a>
+                      <a class="nav-link" href="#myModal2" class="img-responsive" data-toggle="modal"> SignUp </a>
                     </li>
 
 
@@ -105,7 +90,7 @@ echo '
           					</div>
           				</div>
           				<div class="modal-footer justify-content-between">
-          					
+
           					<input type="submit" class="btn btn-primary" value="Login">
           				</div>
           			</form>
@@ -175,16 +160,6 @@ echo '
          else if (isset($_SESSION['username'])) {
 
 
-           $servername = "localhost";
-           $username = "root";
-           $password = "";
-           $db_name = "9gaga";
-
-           // Create connection
-           $link = mysqli_connect($servername, $username, $password, $db_name);
-
-
-           mysqli_query($link, "SET NAMES 'utf8'");
 
 
 
@@ -200,7 +175,7 @@ echo '
 
 
 
-   <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+   <nav class="navbar navbar-expand-lg bg-dark navbar-light fixed-top">
       <div class="container-fluid">
 
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

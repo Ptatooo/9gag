@@ -18,6 +18,7 @@ if (!empty($username) && !empty($pass)) {
     {
       $_SESSION['username']=$user['username'];
       $_SESSION['user_id']=$user['id'];
+    $_SESSION['tipu']=$user['tip_u'];
 
 header( "refresh:0;url=index.php" );
 

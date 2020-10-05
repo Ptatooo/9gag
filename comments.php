@@ -1,7 +1,7 @@
 <?php
 include_once './header.php';
 include_once './db.php';
-require './session.php';
+
 include_once './sql.php';
 
 
@@ -110,7 +110,7 @@ $topicc=$rowto['topic'];
                         <?php
                                                                                           if($_SESSION['tipu'] == 2) {
                                                                                       ?>
-                                            <br>  <a href="deleting_comments.php?id=<?php echo $idodgovora;?>" class="btn btn-sm btn-light"> Delete</a>
+                                            <br>  <a href="deleting_comments.php?id=<?php echo $idodgovora;?>" class="btn btn-sm btn-light bg-light color-red"> Delete</a>
                                                                                       <?php
                                                                                         }?>
                         <div class="post__date">
